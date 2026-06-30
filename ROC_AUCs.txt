@@ -1,0 +1,85 @@
+ROC Curve & AUC Score
+
+ROC (Receiver Operating Characteristic) Curve
+
+The ROC curve evaluates a binary classification model by plotting its
+performance across all possible classification thresholds.
+
+-   X-axis: False Positive Rate (FPR)
+-   Y-axis: True Positive Rate (TPR) / Recall / Sensitivity
+
+Key Formulas
+
+True Positive Rate (TPR): TPR = TP / (TP + FN)
+
+-   Measures the proportion of actual positive samples correctly
+    classified.
+
+False Positive Rate (FPR): FPR = FP / (FP + TN)
+
+-   Measures the proportion of actual negative samples incorrectly
+    classified as positive.
+
+Each classification threshold produces a different (FPR, TPR) point.
+Connecting these points forms the ROC curve.
+
+A model with a curve closer to the top-left corner has better
+discriminative ability.
+
+------------------------------------------------------------------------
+
+AUC (Area Under the ROC Curve)
+
+AUC is the area under the ROC curve.
+
+Interpretation: - 1.0 : Perfect classifier - 0.9–0.99 : Excellent -
+0.8–0.9 : Good - 0.7–0.8 : Fair - 0.6–0.7 : Poor - 0.5 : Random guessing
+
+Higher AUC indicates better class separation.
+
+Another intuition: AUC represents the probability that the model assigns
+a higher prediction score to a randomly chosen positive sample than to a
+randomly chosen negative sample.
+
+------------------------------------------------------------------------
+
+Why ROC-AUC?
+
+Accuracy depends on a fixed threshold and can be misleading, especially
+for imbalanced datasets.
+
+ROC-AUC: - Evaluates performance across all thresholds. - Measures the
+model’s ability to distinguish between classes. - Is useful for
+comparing different binary classifiers.
+
+------------------------------------------------------------------------
+TPR
+1.0 |               ●
+    |            ●
+0.8 |         ●
+    |
+0.6 |      ●
+    |
+0.4 |   ●
+    |
+0.2 |
+    |
+0.0 +---------------------------->
+     0    0.2   0.4   0.6   1.0
+              FPR
+-------------------------------------------------------------------------
+Scikit-learn Example
+
+    from sklearn.metrics import roc_curve, roc_auc_score
+
+    fpr, tpr, thresholds = roc_curve(y_true, y_prob)
+    auc = roc_auc_score(y_true, y_prob)
+
+Summary
+
+-   ROC plots TPR vs FPR for all thresholds.
+-   AUC measures the overall quality of the ROC curve.
+-   Higher AUC = Better classification performance.
+-   AUC = 1 means perfect separation.
+-   AUC = 0.5 means random guessing.
+
