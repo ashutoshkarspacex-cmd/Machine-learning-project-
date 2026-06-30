@@ -1,18 +1,22 @@
-body{
 
-    background:#992d2d;
-    font-family:'Times New Roman', Times, serif;
-
+body {
+  background: rgb(5, 24, 99);
+  color:black ;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
 }
 
 .container{
 
     width:700px;
     margin:50px auto;
-    background:rgb(14, 56, 129);
+    background:rgb(37, 163, 119);
     padding:30px;
     border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
+    box-shadow:0 0 10px rgba(231, 7, 7, 0.532);
 
 }
 
@@ -37,7 +41,7 @@ button{
 .result{
 
     margin-top:20px;
-    font-size:24px;
+    font: size 28px;
     font-weight:bold;
 
 }
